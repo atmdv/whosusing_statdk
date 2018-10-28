@@ -30,7 +30,7 @@ years_w_data <- c(2010:2017)
 
 Getting and structuring the data isn't all that interesting so I wrote a
 function to take care of this bit.
-```{r}
+```{r, message=FALSE}
 library(XML)
 source("get_data.R")
 data <- lapply(years_w_data, FUN=get_data)
@@ -48,7 +48,7 @@ data_all$Organization <-
 The data contains all active projects each year. However, I am mostly interested
 in the number of distinct projects for each organization so for multi-year
 projects, I'm only interested in the first time the project appears in the list.
-```{r}
+```{r, message=FALSE}
 library(dplyr)
 distinct_projects <- data_all %>% 
   group_by(Project_number) %>% 
@@ -86,7 +86,7 @@ most_projects <- distinct_projects %>%
   arrange(desc(Projects))
 most_projects
 ```
-```{r}
+```{r, message=FALSE}
 library(ggplot2)
 ggplot(data = most_projects,
        aes(x = reorder(Organization, Projects), y = Projects, fill="#97d8f2")) +

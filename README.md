@@ -27,20 +27,6 @@ The data contains all active projects each year. However, I am mostly interested
 
 ``` r
 library(dplyr)
-```
-
-    ## 
-    ## Attaching package: 'dplyr'
-
-    ## The following objects are masked from 'package:stats':
-    ## 
-    ##     filter, lag
-
-    ## The following objects are masked from 'package:base':
-    ## 
-    ##     intersect, setdiff, setequal, union
-
-``` r
 distinct_projects <- data_all %>% 
   group_by(Project_number) %>% 
   filter(Year==min(Year))
