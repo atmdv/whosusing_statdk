@@ -99,8 +99,8 @@ ggplot(data = most_projects,
   theme(legend.position = "none")
 ```
 
-So DAMVAD Analytics is the private company that has used the data the most. But
-how has their usage varied over the years?
+So DAMVAD Analytics is the private company that has used the data the most since
+2015. But how has their usage varied over the years?
 ```{r, fig.align='center'}
 DAMVAD_Analytics <- distinct_projects %>% 
   filter(Organization == "445. DAMVAD Analytics") %>% 

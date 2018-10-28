@@ -78,7 +78,7 @@ ggplot(data = most_projects,
 
 <img src="README_files/figure-markdown_github/unnamed-chunk-7-1.png" style="display: block; margin: auto;" />
 
-So DAMVAD Analytics is the private company that has used the data the most. But how has their usage varied over the years?
+So DAMVAD Analytics is the private company that has used the data the most since 2015. But how has their usage varied over the years?
 
 ``` r
 DAMVAD_Analytics <- distinct_projects %>% 
