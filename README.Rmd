@@ -92,9 +92,10 @@ ggplot(data = most_projects,
        aes(x = reorder(Organization, Projects), y = Projects, fill="#97d8f2")) +
   geom_col() +
   scale_fill_manual(values ="#97d8f2") +
-  labs(x="", title = "DAMVAD Analytics started more projects than any other private company in the past three years") +
+  labs(x="", title = "DAMVAD Analytics has started more projects than any other private company") +
   coord_flip() +
   theme_minimal() +
+  theme(plot.title = element_text(hjust = 1.1)) +
   theme(legend.position = "none")
 ```
 
