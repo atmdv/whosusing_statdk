@@ -88,7 +88,7 @@ knitr::kable(most_projects)
 ```
 ```{r, message=FALSE}
 library(ggplot2)
-projects_plot <- ggplot(data = most_projects,
+ggplot(data = most_projects,
        aes(x = reorder(Organization, Projects), y = Projects, fill="#97d8f2")) +
   geom_col() +
   scale_fill_manual(values ="#97d8f2") +
@@ -97,9 +97,6 @@ projects_plot <- ggplot(data = most_projects,
   theme_minimal() +
   theme(plot.title = element_text(hjust = 0.9)) +
   theme(legend.position = "none")
-```
-```{r echo=FALSE}
-print(projects_plot)
 ```
 
 So DAMVAD Analytics is the private company that has used the data the most. But

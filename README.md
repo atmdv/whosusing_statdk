@@ -65,7 +65,7 @@ knitr::kable(most_projects)
 
 ``` r
 library(ggplot2)
-projects_plot <- ggplot(data = most_projects,
+ggplot(data = most_projects,
        aes(x = reorder(Organization, Projects), y = Projects, fill="#97d8f2")) +
   geom_col() +
   scale_fill_manual(values ="#97d8f2") +
@@ -76,7 +76,7 @@ projects_plot <- ggplot(data = most_projects,
   theme(legend.position = "none")
 ```
 
-![](README_files/figure-markdown_github/unnamed-chunk-8-1.png)
+![](README_files/figure-markdown_github/unnamed-chunk-7-1.png)
 
 So DAMVAD Analytics is the private company that has used the data the most. But how has their usage varied over the years?
 
@@ -94,4 +94,4 @@ plot(ggplot(data = DAMVAD_Analytics,
   theme(legend.position = "none"))
 ```
 
-![](README_files/figure-markdown_github/unnamed-chunk-9-1.png)
+![](README_files/figure-markdown_github/unnamed-chunk-8-1.png)
