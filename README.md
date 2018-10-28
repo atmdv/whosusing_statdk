@@ -43,6 +43,25 @@ most_projects <- distinct_projects %>%
   arrange(desc(Projects))
 ```
 
+| Organization                                                                 |  Projects|
+|:-----------------------------------------------------------------------------|---------:|
+| 445. DAMVAD Analytics                                                        |        35|
+| 53. COWI A/S, Division 1                                                     |        27|
+| 48. Epinion A/S                                                              |        17|
+| 44. PLS RAMBØLL Management A/S                                               |        16|
+| 329. Incentive                                                               |        13|
+| 318. Mploy A/S                                                               |        10|
+| 224. Deloitte Consulting, Deloitte, Statsautoriseret Revisionspartnerselskab |         7|
+| 480. Højbjerre Brauer Schultz                                                |         7|
+| 461. Marselisborg                                                            |         4|
+| 72. Copenhagen Economics                                                     |         4|
+| 387. Moos-Bjerre & Lange ApS                                                 |         3|
+| 488. Analyse & Tal                                                           |         3|
+| 243. Oxford Research A/S                                                     |         2|
+| 411. BDO Consulting                                                          |         2|
+| 293. McKinsey & Company                                                      |         1|
+| 481. IRIS Group                                                              |         1|
+
 ``` r
 library(ggplot2)
 ggplot(data = most_projects,
@@ -57,7 +76,7 @@ ggplot(data = most_projects,
   theme(legend.position = "none")
 ```
 
-<img src="README_files/figure-markdown_github/unnamed-chunk-8-1.png" style="display: block; margin: auto;" />
+![](README_files/figure-markdown_github/unnamed-chunk-8-1.png)
 
 So DAMVAD Analytics is the private company that has used the data the most since 2015. But how has their usage varied over the years?
 
@@ -76,4 +95,4 @@ plot(ggplot(data = DAMVAD_Analytics,
   theme(legend.position = "none"))
 ```
 
-<img src="README_files/figure-markdown_github/unnamed-chunk-9-1.png" style="display: block; margin: auto;" />
+![](README_files/figure-markdown_github/unnamed-chunk-9-1.png)

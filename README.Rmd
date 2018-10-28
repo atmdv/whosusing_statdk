@@ -87,10 +87,10 @@ most_projects <- distinct_projects %>%
   summarise(Projects = n()) %>% 
   arrange(desc(Projects))
 ```
-```{r include=FALSE}
+```{r echo=FALSE}
 knitr::kable(most_projects)
 ```
-```{r, fig.align='center', message=FALSE}
+```{r, message=FALSE}
 library(ggplot2)
 ggplot(data = most_projects,
        aes(x = reorder(Organization, Projects), y = Projects, fill="#97d8f2")) +
@@ -106,7 +106,7 @@ ggplot(data = most_projects,
 
 So DAMVAD Analytics is the private company that has used the data the most since
 2015. But how has their usage varied over the years?
-```{r, fig.align='center'}
+```{r}
 DAMVAD_Analytics <- distinct_projects %>% 
   filter(Organization == "445. DAMVAD Analytics") %>% 
   group_by(Year) %>% 
