@@ -5,6 +5,8 @@ date: "28 okt 2018"
 output:
   md_document:
     variant: markdown_github
+    
+fig_width: 10
 ---
 
 ```{r setup, include=FALSE}
@@ -55,7 +57,7 @@ distinct_projects <- data_all %>%
   filter(Year==min(Year))
 ```
 
-So which private company has had most projects the past three years?
+So which private companies have had the most projects the past three years?
 ```{r include=FALSE}
 private_companies <- c("445. DAMVAD Analytics",
                        "53. COWI A/S, Division 1",
@@ -84,6 +86,8 @@ most_projects <- distinct_projects %>%
   group_by(Organization) %>% 
   summarise(Projects = n()) %>% 
   arrange(desc(Projects))
+```
+```{r include=FALSE}
 knitr::kable(most_projects)
 ```
 ```{r, fig.align='center', message=FALSE}
@@ -92,7 +96,8 @@ ggplot(data = most_projects,
        aes(x = reorder(Organization, Projects), y = Projects, fill="#97d8f2")) +
   geom_col() +
   scale_fill_manual(values ="#97d8f2") +
-  labs(x="", title = "DAMVAD Analytics has started more projects than any other private company") +
+  labs(x="", y="Projects started",
+       title = "DAMVAD Analytics has started more projects than any other private company") +
   coord_flip() +
   theme_minimal() +
   theme(plot.title = element_text(hjust = 1.1)) +
@@ -110,7 +115,8 @@ plot(ggplot(data = DAMVAD_Analytics,
        aes(x = Year, y = Projects, fill="#97d8f2")) +
   geom_col() +
   scale_fill_manual(values ="#97d8f2") +
-  labs(x="", title = "DAMVAD Analytics typically starts 10-15 projects every year") +
+  labs(x = "", y = "Projects started",
+       title = "DAMVAD Analytics typically starts 10-15 projects every year") +
   theme_minimal() +
   theme(legend.position = "none"))
 ```
