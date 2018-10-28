@@ -41,32 +41,31 @@ most_projects <- distinct_projects %>%
   group_by(Organization) %>% 
   summarise(Projects = n()) %>% 
   arrange(desc(Projects))
-most_projects
+knitr::kable(most_projects)
 ```
 
-    ## # A tibble: 16 x 2
-    ##    Organization                                                   Projects
-    ##    <chr>                                                             <int>
-    ##  1 445. DAMVAD Analytics                                                35
-    ##  2 53. COWI A/S, Division 1                                             27
-    ##  3 48. Epinion A/S                                                      17
-    ##  4 44. PLS RAMBØLL Management A/S                                       16
-    ##  5 329. Incentive                                                       13
-    ##  6 318. Mploy A/S                                                       10
-    ##  7 224. Deloitte Consulting, Deloitte, Statsautoriseret Revision~        7
-    ##  8 480. Højbjerre Brauer Schultz                                         7
-    ##  9 461. Marselisborg                                                     4
-    ## 10 72. Copenhagen Economics                                              4
-    ## 11 387. Moos-Bjerre & Lange ApS                                          3
-    ## 12 488. Analyse & Tal                                                    3
-    ## 13 243. Oxford Research A/S                                              2
-    ## 14 411. BDO Consulting                                                   2
-    ## 15 293. McKinsey & Company                                               1
-    ## 16 481. IRIS Group                                                       1
+| Organization                                                                 |  Projects|
+|:-----------------------------------------------------------------------------|---------:|
+| 445. DAMVAD Analytics                                                        |        35|
+| 53. COWI A/S, Division 1                                                     |        27|
+| 48. Epinion A/S                                                              |        17|
+| 44. PLS RAMBØLL Management A/S                                               |        16|
+| 329. Incentive                                                               |        13|
+| 318. Mploy A/S                                                               |        10|
+| 224. Deloitte Consulting, Deloitte, Statsautoriseret Revisionspartnerselskab |         7|
+| 480. Højbjerre Brauer Schultz                                                |         7|
+| 461. Marselisborg                                                            |         4|
+| 72. Copenhagen Economics                                                     |         4|
+| 387. Moos-Bjerre & Lange ApS                                                 |         3|
+| 488. Analyse & Tal                                                           |         3|
+| 243. Oxford Research A/S                                                     |         2|
+| 411. BDO Consulting                                                          |         2|
+| 293. McKinsey & Company                                                      |         1|
+| 481. IRIS Group                                                              |         1|
 
 ``` r
 library(ggplot2)
-ggplot(data = most_projects,
+projects_plot <- ggplot(data = most_projects,
        aes(x = reorder(Organization, Projects), y = Projects, fill="#97d8f2")) +
   geom_col() +
   scale_fill_manual(values ="#97d8f2") +
@@ -77,8 +76,6 @@ ggplot(data = most_projects,
   theme(legend.position = "none")
 ```
 
-![](README_files/figure-markdown_github/unnamed-chunk-7-1.png)
-
 So DAMVAD Analytics is the private company that has used the data the most. But how has their usage varied over the years?
 
 ``` r
@@ -86,13 +83,14 @@ DAMVAD_Analytics <- distinct_projects %>%
   filter(Organization == "445. DAMVAD Analytics") %>% 
   group_by(Year) %>% 
   summarise(Projects = n())
-ggplot(data = DAMVAD_Analytics,
+DAMVAD_Analytics_plot <- ggplot(data = DAMVAD_Analytics,
        aes(x = Year, y = Projects, fill="#97d8f2")) +
   geom_col() +
   scale_fill_manual(values ="#97d8f2") +
   labs(x="", title = "DAMVAD Analytics typically has 10-15 projects every year") +
   theme_minimal() +
   theme(legend.position = "none")
+DAMVAD_Analytics_plot
 ```
 
 ![](README_files/figure-markdown_github/unnamed-chunk-8-1.png)

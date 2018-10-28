@@ -84,11 +84,11 @@ most_projects <- distinct_projects %>%
   group_by(Organization) %>% 
   summarise(Projects = n()) %>% 
   arrange(desc(Projects))
-most_projects
+knitr::kable(most_projects)
 ```
 ```{r, message=FALSE}
 library(ggplot2)
-ggplot(data = most_projects,
+projects_plot <- ggplot(data = most_projects,
        aes(x = reorder(Organization, Projects), y = Projects, fill="#97d8f2")) +
   geom_col() +
   scale_fill_manual(values ="#97d8f2") +
@@ -106,11 +106,12 @@ DAMVAD_Analytics <- distinct_projects %>%
   filter(Organization == "445. DAMVAD Analytics") %>% 
   group_by(Year) %>% 
   summarise(Projects = n())
-ggplot(data = DAMVAD_Analytics,
+DAMVAD_Analytics_plot <- ggplot(data = DAMVAD_Analytics,
        aes(x = Year, y = Projects, fill="#97d8f2")) +
   geom_col() +
   scale_fill_manual(values ="#97d8f2") +
   labs(x="", title = "DAMVAD Analytics typically has 10-15 projects every year") +
   theme_minimal() +
   theme(legend.position = "none")
+DAMVAD_Analytics_plot
 ```
