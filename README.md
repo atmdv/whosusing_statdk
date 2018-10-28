@@ -85,14 +85,13 @@ DAMVAD_Analytics <- distinct_projects %>%
   filter(Organization == "445. DAMVAD Analytics") %>% 
   group_by(Year) %>% 
   summarise(Projects = n())
-DAMVAD_Analytics_plot <- ggplot(data = DAMVAD_Analytics,
+plot(ggplot(data = DAMVAD_Analytics,
        aes(x = Year, y = Projects, fill="#97d8f2")) +
   geom_col() +
   scale_fill_manual(values ="#97d8f2") +
   labs(x="", title = "DAMVAD Analytics typically has 10-15 projects every year") +
   theme_minimal() +
-  theme(legend.position = "none")
-print(DAMVAD_Analytics_plot)
+  theme(legend.position = "none"))
 ```
 
 ![](README_files/figure-markdown_github/unnamed-chunk-9-1.png)
